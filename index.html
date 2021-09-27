@@ -1,0 +1,268 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>-->
+
+    <!--replaced with bootstrap version from whiskey -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!-- fontwaesome version from whiskey -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
+
+    <!-- add new google font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <title>Ideal European Holiday</title>
+  </head>
+  <body>
+    <div id="hero">
+     <nav>
+       <nav class="navbar navbar-light big-light navbar-expand-sm bg-primary">
+          <a href="#hero" class="navbar-brand"><span id="span-space"></span>EUROHOL</a>
+
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span></button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto">
+               <!--new add bootsrap class to li -->
+                  <li class="active nav-item mr-2"><a class="nav-link" href="#hero">Home</a></li>
+                  <li class="nav-item mr-2"><a class="nav-link" href="#select_hol">Select Holiday</a></li>
+                  <li class="nav-item mr-2"><a class="nav-link" href="#about_info">About</a></li>
+                  <li class="nav-item mr-2"><a class="nav-link" href="#contact_info">Contact</a></li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Booking history</a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#"><strong>Customer name: </strong> <br><span id="cust_name"></span></a>
+                          <a class="dropdown-item" href="#"><strong>Holiday accomdation: </strong> <br><span id="selected_lodging"></span></a>
+                          <a class="dropdown-item" href="#"><strong>Date: </strong> <br></a>
+                          <a class="dropdown-item" href="#"><strong>Flying with: </strong><br><span id="flyin_airline"></span></a>
+                      </div>
+                  </li>
+
+                </ul>
+                <span id="span_icon"><i class="fas fa-plane-departure"></i></span>
+            </div>
+            <!--<div class="d-none d-md-block">
+              <p class="navbar-text my-auto mr-2"><i>Check out your booking history here!</i></p>
+              <a href="Booking-history.html">Booking History</a>
+            </div>-->
+
+          <!--Commented out closing div not needed -->
+          <!--</div>-->
+        </nav>
+    </div>
+    <section id="top-section">
+      <div class="row hero-content pt-lg pb-lg-2 pt-2">
+        <div class="col-md-6 col-sm-12" id="top_text">
+          <h2>Find your Ideal European Holiday Lodging.</h1>
+          <h4>EUROHOL is a website where visitor can find accomadation for holiday types such as beach holiday, city holiday and skiing holiday and it will return the countries/cities that provide such holidays.
+            Select the hotel/accomodation and airline and select date and click submit to book holiday – which records it in booking history.</h4>
+        </div>
+
+      </div>
+      <div class="row hero-content pt-lg pb-lg-0 pt-0">
+        <div class="col-md-6 col-sm-12">
+          <div class="hol_image">
+            <div class="hol_ski">
+               <img src="assets/images/pexels-switzerland-skiing.jpeg" alt="ski picture" width="400" height="200">
+            </div>
+            <div class="hol_beach">
+               <img src="assets/images/pexels-croatia-beach1.jpeg" alt="city picture" width="400" height="200">
+            </div>
+            <div class="hol_city">
+               <img src="assets/images/pexels-berlin2.jpeg" alt="city picture" width="400" height="200">
+            </div>
+          </div>
+          <br>
+          <p id="site_info"  class="text-muted">
+            There is a wonderfull array of accomadation ranging from hotels and guesthouses in locations around Europe whether you are looking for skiing, beach or city tour holiday.
+            The map location marker will provide you with information on the accomadation such as star rating.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="container" id="country_section">
+      <!--<div class="container">-->
+
+        <br>
+        <div id="select_hol">
+          <br>
+          <br>
+          <br>
+          <label for="country">Choose Holiday type:</label>
+          <select name="hol_picked" id="hol_picked" onchange="enablebutton()">
+          <!--<select name="hol_picked" id="hol_picked">-->
+            <option value="Skiing">Skiing</option>
+            <option value="Beach">Beach</option>
+            <option value="City">City Tour</option>
+          </select>
+          <button id="hol_btn">Get info</button>
+        </div>
+        <br>
+        <div class="row" id="hol_display">
+
+            <!-- corrected the different device grid whivh fixed mobile landscape view-->
+            <div id="country1" class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <!--<div id="country2" class="col-md-4 col-lg-4">-->
+            </div>
+            <br>
+            <div id="map1"></div>
+            <div id="button1" data-toggle="modal" data-target="#signUpModal"></div>
+            <br>
+            <!--<div id="country2" class="col-md-4 col-lg-4">-->
+            <div id="country2" class="col-12 col-sm-4 col-md-4 col-lg-4">
+            </div>
+            <br>
+            <div id="map2"></div>
+            <div id="button2" data-toggle="modal" data-target="#signUpModal"></div>
+            <br>
+            <div id="country3" class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <!--<div id="country3" class="col-md-4 col-lg-4">-->
+            </div>
+            <br>
+            <div id="map3"></div>
+            <div id="button3" data-toggle="modal" data-target="#signUpModal"></div>
+            <br>
+            <div id="desktop_container">
+              <div id="map_desktop"></div>
+              <div id="book_button"  data-toggle="modal" data-target="#signUpModal"></div>
+            </div>
+            <br>
+            <div id="country4" class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <!--<div id="country4" class="col-md-4 col-lg-4">-->
+            </div>
+            <br>
+            <div id="map4"></div>
+            <div id="button4" data-toggle="modal" data-target="#signUpModal"></div>
+            <br>
+            <div id="country5" class="col-12 col-sm-4 col-md-4 col-lg-4">
+            <!--<div id="country5" class="col-md-4 col-lg-4">-->
+            </div>
+            <br>
+            <div id="map5"></div>
+            <div id="button5" data-toggle="modal" data-target="#signUpModal"></div>
+            <br>
+
+       </div>
+
+  </section>
+
+ <!--  <section>
+    	<div id="About">
+        <h2>ABOUT US</h2>
+      </div>
+      <div id="site_design">
+        <p>This my second project which is designed using <span><strong>html,css,bootstrap and javascript</strong></span></p>
+      </div>
+      <div id="external_res">
+        <p>The site also uses external resources like <span><strong>Google Map/Places api</strong></span> and also <span><strong>font awesome</strong></span></p>
+      </div>
+  </section>
+  <section>-->
+
+  <!--  <footer id="Contact">
+       <div class="footer-content">
+            <h3>Contact Us</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+             <ul class="social_media">
+               <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+               <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+               <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+               <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            </ul>
+         </div>
+         <div class="footer-bottom">
+              <p>copyright &copy;2021 designed by <span>DJM</span></p>
+
+          </div>
+      </footer>
+  </section>-->
+
+  <footer class="bg-primary text-white">
+    <div class="container py-3" id="footer_size">
+      <div class="row">
+        <div class="col-lg-3" id="about_info">
+          <h4>About US</h4>
+            <p>This my second project which is designed using <span><strong>html,css,bootstrap and javascript</strong></span></p>
+        </div>
+        <!--<div class="col-lg-3">
+          <h4>Usefull links</h4>
+          <ul class="list-unstyled">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>-->
+        <div class="col-lg-3 ml-auto" id="contact_info">
+           <h4>Contact US</h4>
+           <p>
+             <address>Dublin, Ireland</address>
+             <strong>Email:</strong> <a href="mailto:test@test.com">test@test.com</a>
+            </p>
+            <ul>
+              <li><a href="https://www.facebook.com" aria-label="link to Facebook" target="_blank"><i
+                       class="fab fa-facebook"></i></a></li>
+               <li><a href="https://www.twitter.com" aria-label="link to Twitter" target="_blank"><i
+                       class="fab fa-twitter-square"></i></a></li>
+               <li><a href="https://www.youtube.com" aria-label="link to YouTube" target="_blank"><i
+                       class="fab fa-youtube-square"></i></a></li>
+
+           </ul>
+      </div>
+      <div class="container-fluid text-center py-2">
+        &copy, 2020. All rights reservered.
+
+      </div>
+
+  </footer>
+
+    <div class="modal" tabindex="-1" role="dialog" id="signUpModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Book Holiday Lodging!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                  <!--<form action="Booking-history.html" target="_blank">-->
+                  <form>
+                     <label for="formName">Name:</label>
+                     <input type="text" id="formName">
+                     <br>
+                     <label for="resort">Choose Resort:</label>
+                     <select name="hol_picked" id="resort">
+                     </select>
+                     <br>
+                     <label for="airlines">Choose Airline:</label>
+                     <select name="airline_picked" id="airlines" style="width: 150px;"></select>
+
+                     <br>
+                     <input type="submit" class="btn btn-success" value="Submit Booking" onclick="passvalues();">
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script src="holinfo.js"></script>
+
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDS0EOHN0g4ZwhTBVU4UHbcjNpGMDssh0E"></script>-->
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyACygvHjCVUCoZi4umIShSTxDRJfRXALmo"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
